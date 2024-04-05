@@ -1,0 +1,92 @@
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("./src/BMJUA.woff.ttf") format("truetype");
+}
+body {
+  font-family: "MyCustomFont", sans-serif;
+  margin: 0;
+  background: linear-gradient(to right, #f3f3f3 0%, #cde4f7 100%);
+  color: #333;
+}
+body header {
+  padding: 20px;
+  text-align: center;
+  margin-top: 30px;
+  color: #487aa3;
+}
+body header h1 {
+  margin: 0;
+}
+body main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+body #add-task {
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #487aa3;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+body .delete-task {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #e1a5b8;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+body .list {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+  margin-top: 20px;
+}
+body .list p {
+  width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+body .tasks {
+  text-align: left;
+  padding-left: 0;
+  width: 200px;
+  height: 30px;
+}
+body .task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 5px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  animation: pulse 1.3s linear infinite;
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+body h2 {
+  padding-bottom: 10px;
+  text-align: center;
+  color: gray;
+}
+
+/*# sourceMappingURL=style.css.map */
