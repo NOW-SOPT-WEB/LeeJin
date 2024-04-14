@@ -1,6 +1,6 @@
 @font-face {
     font-family: "MyCustomFont";
-    src: url('./src/BMJUA.woff.ttf') format('truetype');
+    src: url('./assets/BMJUA.woff.ttf') format('truetype');
 }
 
 * {
@@ -9,7 +9,7 @@
 
 body {
     font-family: 'MyCustomFont', sans-serif;
-    background-image: url('./src/롤.jpeg');
+    background-image: url('./assets/롤.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -34,7 +34,7 @@ body {
         margin: 0;
     }
 
-    .logo {
+    .header-title {
         display: flex;
         justify-content: center;
 
