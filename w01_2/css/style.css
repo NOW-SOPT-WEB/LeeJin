@@ -1,6 +1,6 @@
 @font-face {
   font-family: "MyCustomFont";
-  src: url("./src/BMJUA.woff.ttf") format("truetype");
+  src: url("../src/BMJUA.woff.ttf") format("truetype");
 }
 body {
   font-family: "MyCustomFont", sans-serif;
@@ -64,7 +64,6 @@ body .tasks {
 }
 body .task {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: baseline;
   gap: 5px;
