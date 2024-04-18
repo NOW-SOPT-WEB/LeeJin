@@ -296,34 +296,3 @@ footer {
 
     color: gray;
 }
-
-.cartContainer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 8rem;
-}
-
-#cartTable {
-    width: 80%;
-    border-collapse: collapse;
-    
-    th, td {
-        border: 1px solid black;
-        padding: 1rem; 
-        text-align: center; 
-    }
-    
-    th {
-        background-color: goldenrod;
-    }
-    td {
-        background-color: rgb(255, 255, 255, 0.8);
-    }
-    
-}
-
-.product-details {
-    display: flex;
-    align-items: center;
-}
