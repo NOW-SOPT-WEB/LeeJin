@@ -24,6 +24,7 @@ body {
 
     background-color: rgba(191, 163, 215, 0.7);
 
+    top: 0;
     width: calc(100% - 3.7rem);
     padding: 1rem;
     margin: 1.5rem;
@@ -300,21 +301,29 @@ footer {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 5rem;
+    margin-top: 8rem;
 }
 
-table {
-    border-collapse: collapse; /* 겹치는 테두리를 하나로 합침 */
-
+#cartTable {
+    width: 80%;
+    border-collapse: collapse;
+    
+    th, td {
+        border: 1px solid black;
+        padding: 1rem; 
+        text-align: center; 
+    }
+    
+    th {
+        background-color: goldenrod;
+    }
+    td {
+        background-color: rgb(255, 255, 255, 0.8);
+    }
+    
 }
 
-th, td {
-    border: 1px solid black; /* 테두리 설정 */
-    padding: 8px; /* 내부 여백 */
-    text-align: left; /* 텍스트 정렬 */
-}
-
-th {
-    background-color: rgb(255, 255, 255, 0.5); /* 헤더 배경 색상 */
-}  bord
+.product-details {
+    display: flex;
+    align-items: center;
 }
