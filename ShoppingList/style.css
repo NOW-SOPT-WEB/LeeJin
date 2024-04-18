@@ -45,17 +45,53 @@ body {
     }
 }
 
+.hamburger-toggle {
+    position: absolute;
+    /* opacity: 0; */
 
-.hamburger {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+    padding: 0;
 
-    width: 2rem;
-    height: 2rem;
-
-    background-color: rgb(252, 231, 247);
     cursor: pointer;
+}
+
+.hamburger label {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+.hamburger-menu {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+
+    background: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.7);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+    padding: 1rem;
+
+    ul {
+        margin-top: 3rem;
+    }
+    li {
+        list-style: none;
+        padding: 1.5rem 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.hamburger-toggle:checked + .fa-bars + .hamburger-menu {
+    transform: translateX(0%);  /* 체크박스 체크될 때 모달 보이도록 */
 }
 
 .container {
@@ -192,7 +228,7 @@ body {
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.5);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
+
     transition: transform 0.2s ease-in-out;
 
     img {
@@ -244,6 +280,7 @@ body {
     h3 {
         margin: 0.3rem;
     }
+
     .price {
         color: rgb(93, 93, 93);
     }
