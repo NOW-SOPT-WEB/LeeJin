@@ -141,18 +141,12 @@ body {
     li {
         list-style: none;
         padding: 0.8rem;
-    }
-
-    a {
         color: rgb(64, 60, 60);
-        text-decoration: none;
+        cursor: pointer;
     }
 
     li:hover {
-        a {
-            color: #D7A1A4;
-        }
-
+        color: #D7A1A4;
         background-color: rgb(48, 47, 47);
     }
 }
