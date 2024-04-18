@@ -47,7 +47,7 @@ body {
 
 .hamburger-toggle {
     position: absolute;
-    /* opacity: 0; */
+    opacity: 0;
 
     width: 1.5rem;
     height: 1.5rem;
