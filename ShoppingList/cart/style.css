@@ -204,4 +204,5 @@ button {
 #close-modal {
     display: flex;
     justify-content: end;
+    cursor: pointer;
 }

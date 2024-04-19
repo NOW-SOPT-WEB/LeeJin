@@ -50,3 +50,11 @@ const modal = document.getElementById('purchase-modal');
 document.getElementById('purchase-button').onclick = () => {
     modal.style.display = 'block';
 }
+document.getElementById('close-modal').onclick = () => {
+    modal.style.display = 'none';
+}
+window.onclick = (e) => {
+    if (e.target == modal) {
+        modal.style.display = 'none';
+    }
+}
