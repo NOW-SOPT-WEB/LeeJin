@@ -71,7 +71,7 @@ document.getElementById('purchase-button').onclick = () => {
         const itemCard = document.createElement('div');
         itemCard.className = 'item-card';
         itemCard.innerHTML = `
-            <img src="${itemSrc}" alt="${itemName}>
+            <img src="${itemSrc}" alt="${itemName}"/>
             <p>${itemName}</p>
             <p class="item-price">${itemPrice}</p>
         `
