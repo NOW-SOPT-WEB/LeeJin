@@ -35,7 +35,8 @@ cartData.forEach(item => {
     const deleteCell = row.insertCell(5);
     const deleteButton = document.createElement('button');
     deleteButton.textContent = '삭제';
-    deleteButton.onClick = () => {
+    deleteButton.style.cursor = 'pointer';
+    deleteButton.onclick = () => {
         tableBody.removeChild(row);
         const index = cartData.indexOf(item);
         if (index > -1) {
