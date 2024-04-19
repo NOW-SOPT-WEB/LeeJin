@@ -53,6 +53,7 @@ document.getElementById('purchase-button').onclick = () => {
     modal.style.display = 'block';
     
     //체크된 데이터 불러오기
+    purchaseItem.innerHTML = '';
     const checkedItems = tableBody.querySelectorAll('input[type="checkbox"]:checked');
     checkedItems.forEach(item => {
         const row = item.closest('tr');
