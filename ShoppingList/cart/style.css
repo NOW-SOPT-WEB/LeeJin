@@ -81,6 +81,7 @@ body {
     ul {
         margin-top: 3rem;
     }
+
     li {
         list-style: none;
         padding: 1.5rem 0;
@@ -97,11 +98,14 @@ body {
     }
 }
 
-.hamburger-toggle:checked + .fa-bars + .hamburger-menu {
-    transform: translateX(0%);  /* 체크박스 체크될 때 모달 보이도록 */
+.hamburger-toggle:checked+.fa-bars+.hamburger-menu {
+    transform: translateX(0%);
+    /* 체크박스 체크될 때 모달 보이도록 */
 }
+
 .cartContainer {
     display: flex;
+    position: relative;
     justify-content: center;
     width: 100%;
     margin-top: 8rem;
@@ -110,23 +114,46 @@ body {
 #cartTable {
     width: 80%;
     border-collapse: collapse;
-    
-    th, td {
+    table-layout: fixed;
+
+    th,
+    td {
         border: 1px solid black;
-        padding: 1rem; 
-        text-align: center; 
+        padding: 1rem;
+        text-align: center;
     }
-    
+
     th {
         background-color: goldenrod;
     }
+
     td {
         background-color: rgb(255, 255, 255, 0.8);
     }
-    
-}
 
-.product-details {
-    display: flex;
-    align-items: center;
+    tbody {
+        display: block;
+        height: 30rem;
+        overflow-y: scroll;
+    }
+
+    thead,
+    tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    /* tbody::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    tbody::-webkit-scrollbar-thumb {
+        background-color: darkgrey;
+        border-radius: 6px;
+    }
+
+    tbody::-webkit-scrollbar-track {
+        background: none;
+    } */
 }
