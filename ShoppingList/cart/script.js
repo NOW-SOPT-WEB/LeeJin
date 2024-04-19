@@ -54,12 +54,14 @@ document.getElementById('purchase-button').onclick = () => {
     
     //체크된 데이터 불러오기
     purchaseItem.innerHTML = '';
+    let totalAmount = 0;
     const checkedItems = tableBody.querySelectorAll('input[type="checkbox"]:checked');
     checkedItems.forEach(item => {
         const row = item.closest('tr');
         const itemSrc = extractSrc(row.cells[1].innerHTML);
         const itemName = row.cells[2].textContent;
         const itemPrice = row.cells[3].textContent;     //"1,250RP"
+        totalAmount += parseInt(itemPrice.replace(/[^0-9]/g, ''), 10);
         console.log({itemSrc, itemName, itemPrice})
         const itemCard = document.createElement('div');
         itemCard.className = 'item-card';
@@ -69,7 +71,9 @@ document.getElementById('purchase-button').onclick = () => {
             <p class="item-price">${itemPrice}</p>
         `
         purchaseItem.appendChild(itemCard);
-    })
+    });
+
+    document.getElementById('total-amount').textContent = totalAmount.toLocaleString() + 'RP';
 }
 
 //item의 src 추출하기
