@@ -35,7 +35,7 @@
         <table id="cartTable">
             <thead>
                 <tr>
-                    <th>선택</th>
+                    <th><input type="checkbox" id="all-check"></th>
                     <th colspan="2">상품 정보</th>
                     <th>상품 금액</th>
                     <th>카테고리</th>
@@ -55,8 +55,11 @@
     <div id="purchase-modal" class="modal">
         <div class="modal-content">
             <i id="close-modal" class="fa-solid fa-xmark"></i>
+            <div class="purchase-item"></div>
             <p>총 금액: <span id="total-amount">0RP</span></p>
-            <button id="confirm-purchase">구매하기</button>
+            <div class="button-container">
+                <button id="confirm-purchase">구매하기</button>
+            </div>
         </div>
     </div>
 </body>

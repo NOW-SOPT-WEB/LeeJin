@@ -194,15 +194,33 @@ button {
 }
 
 .modal-content {
-    background-color: white;
+    background-color: gray;
     width: 50%;
     height: 65%;
     margin: 12% auto;
-    padding: 2rem;
+    padding: 1rem;
+
+    border-radius: 0.5rem;
+
+    .button-container {
+        margin: 0;
+    }
 }
 
 #close-modal {
     display: flex;
     justify-content: end;
+
+    margin-bottom: 1rem;
     cursor: pointer;
+    border-radius: 1rem;
+
+    color: white;
+}
+
+.purchase-item {
+    background-color: white;
+    height: 80%;
+    border-radius: 0.5rem;
+
 }
