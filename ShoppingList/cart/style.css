@@ -180,7 +180,7 @@ button {
 }
 
 .modal {
-    display: none;
+    /* display: none; */
     position: fixed;
     z-index: 1;
 
@@ -194,7 +194,7 @@ button {
 }
 
 .modal-content {
-    background-color: gray;
+    background-color: lightslategray;
     width: 50%;
     height: 65%;
     margin: 12% auto;
@@ -219,8 +219,46 @@ button {
 }
 
 .purchase-item {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 13rem;
+    gap: 0.3rem;
+    padding: 0.3rem;
+
+    justify-content: center;
+
     background-color: white;
     height: 80%;
-    border-radius: 0.5rem;
 
+    overflow-y: scroll;
+}
+
+.item-card {
+    justify-content: center;
+
+    padding: 0.3rem;
+
+    border: 1px solid #D7A1A4;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 70%;
+        border-radius: 10px;
+    }
+
+    p {
+        margin: 0.6rem;
+    }
+}
+
+.item-price {
+    color: gray;
+    font-size: 0.8rem;
 }

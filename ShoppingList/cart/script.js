@@ -46,10 +46,40 @@ cartData.forEach(item => {
     deleteCell.appendChild(deleteButton);
 });
 
+//모달창 열기
 const modal = document.getElementById('purchase-modal');
+const purchaseItem = document.querySelector('.purchase-item');
 document.getElementById('purchase-button').onclick = () => {
     modal.style.display = 'block';
+    
+    //체크된 데이터 불러오기
+    const checkedItems = tableBody.querySelectorAll('input[type="checkbox"]:checked');
+    checkedItems.forEach(item => {
+        const row = item.closest('tr');
+        const itemSrc = extractSrc(row.cells[1].innerHTML);
+        const itemName = row.cells[2].textContent;
+        const itemPrice = row.cells[3].textContent;     //"1,250RP"
+        console.log({itemSrc, itemName, itemPrice})
+        const itemCard = document.createElement('div');
+        itemCard.className = 'item-card';
+        itemCard.innerHTML = `
+            <img src="${itemSrc} alt="${itemName}>
+            <p>${itemName}</p>
+            <p class="item-price">${itemPrice}</p>
+        `
+        purchaseItem.appendChild(itemCard);
+    })
 }
+
+//item의 src 추출하기
+const extractSrc = (cellsHTML) => {
+    // "<img src="../assets/section4/시바냥.jpeg" alt="시바견 유미" style="width: 2rem;">"
+    const tmpDiv = document.createElement('div');
+    tmpDiv.innerHTML = cellsHTML;
+    return tmpDiv.querySelector('img').getAttribute('src');
+}
+
+//모달창 닫기
 document.getElementById('close-modal').onclick = () => {
     modal.style.display = 'none';
 }
