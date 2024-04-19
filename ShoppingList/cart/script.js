@@ -25,7 +25,7 @@ cartData.forEach(item => {
 
     //상품금액 셀
     const priceCell = row.insertCell(3);
-    priceCell.textContent = item.price + 'RP';
+    priceCell.textContent = item.price.toLocaleString() + 'RP';
 
     //카테고리 셀
     const categoryCell = row.insertCell(4);
@@ -45,3 +45,4 @@ cartData.forEach(item => {
     };
     deleteCell.appendChild(deleteButton);
 });
+
