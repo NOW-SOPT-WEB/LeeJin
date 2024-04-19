@@ -46,3 +46,7 @@ cartData.forEach(item => {
     deleteCell.appendChild(deleteButton);
 });
 
+const modal = document.getElementById('purchase-modal');
+document.getElementById('purchase-button').onclick = () => {
+    modal.style.display = 'block';
+}

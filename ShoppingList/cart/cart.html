@@ -47,9 +47,17 @@
         </table>
     </main>
 
-    <div class="buttonContainer">
-        <button>구매하기</button>
+    <div class="button-container">
+        <button id="purchase-button">구매하기</button>
         <a href="../index.html"><button>홈으로</button></a>
+    </div>
+
+    <div id="purchase-modal" class="modal">
+        <div class="modal-content">
+            <i id="close-modal" class="fa-solid fa-xmark"></i>
+            <p>총 금액: <span id="total-amount">0RP</span></p>
+            <button id="confirm-purchase">구매하기</button>
+        </div>
     </div>
 </body>
 </html>

@@ -162,7 +162,7 @@ body {
     } */
 }
 
-.buttonContainer {
+.button-container {
     display: flex;
     justify-content: center;
     gap: 3rem;
@@ -177,4 +177,31 @@ body {
 
 button {
     cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    width: 50%;
+    height: 65%;
+    margin: 12% auto;
+    padding: 2rem;
+}
+
+#close-modal {
+    display: flex;
+    justify-content: end;
 }
