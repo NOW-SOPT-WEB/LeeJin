@@ -39,7 +39,7 @@ function updateCartDisplay() {
         const deleteCell = row.insertCell(5);
         const deleteButton = document.createElement('button');
         deleteButton.textContent = '삭제';
-        deleteButton.onclick = () => {
+        deleteButton.addEventListener('click', (e) => {
             tableBody.removeChild(row);
             const index = cartData.indexOf(item);
             if (index > -1) {
@@ -47,14 +47,14 @@ function updateCartDisplay() {
                 localStorage.setItem('cart', JSON.stringify(cartData));
                 updateCartDisplay();
             }
-        };
+        });
         deleteCell.appendChild(deleteButton);
     });
 }
 
 
 //모달창 열기
-document.getElementById('purchase-button').onclick = () => {
+document.getElementById('purchase-button').addEventListener('click', (e) => {
     modal.style.display = 'block';
     
     //체크된 데이터 불러오기
@@ -79,11 +79,11 @@ document.getElementById('purchase-button').onclick = () => {
 
     document.getElementById('total-amount').textContent = totalAmount.toLocaleString() + 'RP';
 
-    document.getElementById('confirm-purchase').onclick = () => {
+    document.getElementById('confirm-purchase').addEventListener('click', (e) => {
         alert('구매가 정상적으로 완료되었습니다람쥐');
         modal.style.display = 'none';
-    }
-}
+    });
+});
 
 //item의 src 추출하기
 const extractSrc = (cellsHTML) => {
@@ -94,17 +94,17 @@ const extractSrc = (cellsHTML) => {
 }
 
 //모달창 닫기
-document.getElementById('close-modal').onclick = () => {
+document.getElementById('close-modal').addEventListener('click', (e) => {
     modal.style.display = 'none';
-}
-window.onclick = (e) => {
+});
+window.addEventListener('click', (e) => {
     if (e.target == modal) {
         modal.style.display = 'none';
     }
-}
+})
 
 //구매 확정 이벤트 추가
-document.getElementById('confirm-purchase').onclick = () => {
+document.getElementById('confirm-purchase').addEventListener('click', (e) => {
     const checkedItems = tableBody.querySelectorAll('input[type="checkbox"]:checked');
     checkedItems.forEach(item => {
         const row = item.closest('tr');
@@ -119,4 +119,4 @@ document.getElementById('confirm-purchase').onclick = () => {
     localStorage.setItem('cart', JSON.stringify(cartData));
     modal.style.display = 'none';
     updateCartDisplay();
-}
+});
