@@ -2,6 +2,7 @@ const tableBody = document.getElementById('cartTable').querySelector('tbody');
 const modal = document.getElementById('purchase-modal');
 const purchaseItem = document.querySelector('.purchase-item');
 const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+let checkedItems;
 
 updateCartDisplay();
 function updateCartDisplay() {
@@ -52,7 +53,6 @@ function updateCartDisplay() {
     });
 }
 
-
 //모달창 열기
 document.getElementById('purchase-button').addEventListener('click', (e) => {
     modal.style.display = 'block';
@@ -60,7 +60,7 @@ document.getElementById('purchase-button').addEventListener('click', (e) => {
     //체크된 데이터 불러오기
     purchaseItem.innerHTML = '';
     let totalAmount = 0;
-    const checkedItems = tableBody.querySelectorAll('input[type="checkbox"]:checked');
+    checkedItems = tableBody.querySelectorAll('input[type="checkbox"]:checked');
     checkedItems.forEach(item => {
         const row = item.closest('tr');
         const itemSrc = extractSrc(row.cells[1].innerHTML);
@@ -79,15 +79,10 @@ document.getElementById('purchase-button').addEventListener('click', (e) => {
 
     document.getElementById('total-amount').textContent = totalAmount.toLocaleString() + 'RP';
 
-    document.getElementById('confirm-purchase').addEventListener('click', (e) => {
-        alert('구매가 정상적으로 완료되었습니다람쥐');
-        modal.style.display = 'none';
-    });
 });
 
 //item의 src 추출하기
 const extractSrc = (cellsHTML) => {
-    // "<img src="../assets/section4/시바냥.jpeg" alt="시바견 유미" style="width: 2rem;">"
     const tmpDiv = document.createElement('div');
     tmpDiv.innerHTML = cellsHTML;
     return tmpDiv.querySelector('img').getAttribute('src');
@@ -105,7 +100,8 @@ window.addEventListener('click', (e) => {
 
 //구매 확정 이벤트 추가
 document.getElementById('confirm-purchase').addEventListener('click', (e) => {
-    const checkedItems = tableBody.querySelectorAll('input[type="checkbox"]:checked');
+    alert('구매가 정상적으로 완료되었습니다람쥐');
+    
     checkedItems.forEach(item => {
         const row = item.closest('tr');
         const itemName = row.cells[2].textContent; // 아이템 이름을 식별자로 사용
