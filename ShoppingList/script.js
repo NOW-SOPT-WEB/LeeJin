@@ -2,6 +2,7 @@ import { SHOPPING_LIST } from './data.js'
 
 const container = document.getElementById('content');
 const categoryList = document.getElementById('categoryList');
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 categoryList.addEventListener('click', (e) => {
     const category = e.target.getAttribute('category');
@@ -16,8 +17,13 @@ container.addEventListener('click', (e) => {
 
     const itemName = card.querySelector('h3').innerText;
     const item = Object.values(SHOPPING_LIST).flat().find(i => i.name === itemName);
-    if (item && confirm(`${item.name}을 장바구니에 추가하시겠습니까?`)) {
-        addToCart(item);
+    if (item) {
+        const isAlreadyInCart = cart.some(cartItem => cartItem.name === item.name);
+        if (isAlreadyInCart) {
+            alert('이미 장바구에 존재하는 상품입니다.');
+        } else if (confirm(`${item.name}을 장바구니에 추가하시겠습니까?`)) {
+            addToCart(item);
+        }
     }
 });
 
@@ -42,7 +48,6 @@ function filterItems(category) {
 filterItems('전체');
 
 function addToCart(item) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push(item);
     localStorage.setItem('cart', JSON.stringify(cart));
 }
