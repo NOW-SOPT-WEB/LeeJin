@@ -67,7 +67,6 @@ document.getElementById('purchase-button').onclick = () => {
         const itemName = row.cells[2].textContent;
         const itemPrice = row.cells[3].textContent;     //"1,250RP"
         totalAmount += parseInt(itemPrice.replace(/[^0-9]/g, ''), 10);
-        console.log({itemSrc, itemName, itemPrice})
         const itemCard = document.createElement('div');
         itemCard.className = 'item-card';
         itemCard.innerHTML = `
@@ -106,9 +105,7 @@ window.onclick = (e) => {
 
 //구매 확정 이벤트 추가
 document.getElementById('confirm-purchase').onclick = () => {
-    console.log("왜 안 돼")
     const checkedItems = tableBody.querySelectorAll('input[type="checkbox"]:checked');
-    console.log("선택됐냐", {checkedItems})
     checkedItems.forEach(item => {
         const row = item.closest('tr');
         const itemName = row.cells[2].textContent; // 아이템 이름을 식별자로 사용

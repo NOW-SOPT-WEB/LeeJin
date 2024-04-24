@@ -11,15 +11,11 @@ categoryList.addEventListener('click', (e) => {
 });
 
 container.addEventListener('click', (e) => {
-    console.log("안녕하다")
     const card = e.target.closest('.card');     // 클릭된 요소에서 가장 가까운 .card 요소 찾는 코드
     if (!card) return;
-    console.log("안녕할걸?")
 
     const itemName = card.querySelector('h3').innerText;
-    console.log({itemName})
     const item = Object.values(SHOPPING_LIST).flat().find(i => i.name === itemName);
-    console.log({item})
     if (item && confirm(`${item.name}을 장바구니에 추가하시겠습니까?`)) {
         addToCart(item);
     }
