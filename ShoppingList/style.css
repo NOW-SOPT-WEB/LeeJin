@@ -160,7 +160,7 @@ body {
     margin: 6.5rem 2rem 1rem 11.5rem;
 }
 
-.banner-items {
+#banner-items {
     display: flex;
 
     width: calc((85% / 21 * 42) + (20px * 42));

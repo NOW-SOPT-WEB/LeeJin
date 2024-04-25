@@ -3,6 +3,16 @@ import { SHOPPING_LIST } from './data.js'
 const container = document.getElementById('content');
 const categoryList = document.getElementById('categoryList');
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
+const bannerItems = document.getElementById('banner-items');
+
+Object.values(SHOPPING_LIST).forEach(category => {
+    category.forEach(item => {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = item.name;
+        bannerItems.appendChild(img);
+    });
+});
 
 categoryList.addEventListener('click', (e) => {
     const category = e.target.getAttribute('category');
