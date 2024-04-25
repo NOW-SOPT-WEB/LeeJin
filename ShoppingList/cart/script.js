@@ -6,52 +6,33 @@ let checkedItems;
 
 updateCartDisplay();
 function updateCartDisplay() {
-    tableBody.innerHTML = '';
+    let htmlContent = '';
     cartData.forEach(item => {
-        const row = tableBody.insertRow();
-        //선택 셀
-        const selectCell = row.insertCell(0);
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.style.cursor = 'pointer';
-        selectCell.appendChild(checkbox);
-
-        //상품 사진 셀
-        const imageCell = row.insertCell(1);
-        const image = document.createElement('img');
-        image.src = '.' + item.src;
-        image.alt = item.name;
-        image.style.width = '2rem';
-        imageCell.appendChild(image);
-
-        //상품명 셀
-        const nameCell = row.insertCell(2);
-        nameCell.textContent = item.name;
-
-        //상품금액 셀
-        const priceCell = row.insertCell(3);
-        priceCell.textContent = item.price.toLocaleString() + 'RP';
-
-        //카테고리 셀
-        const categoryCell = row.insertCell(4);
-        categoryCell.textContent = item.category;
-
-        //삭제버튼 셀
-        const deleteCell = row.insertCell(5);
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = '삭제';
-        deleteButton.addEventListener('click', (e) => {
-            tableBody.removeChild(row);
-            const index = cartData.indexOf(item);
-            if (index > -1) {
-                cartData.splice(index, 1);
-                localStorage.setItem('cart', JSON.stringify(cartData));
-                updateCartDisplay();
-            }
-        });
-        deleteCell.appendChild(deleteButton);
+        htmlContent += `
+        <tr>
+            <td><input type="checkbox" style="cursor: pointer;"></td>
+            <td><img src=".${item.src}" alt="${item.name}" style="width: 2rem;"></td>
+            <td>${item.name}</td>
+            <td>${item.price.toLocaleString()}RP</td>
+            <td>${item.category}</td>
+            <td><button>삭제</button></td>
+        </tr>`;
     });
+    tableBody.innerHTML = htmlContent;
 }
+
+document.getElementById('cartTable').addEventListener('click', function(event) {
+    if (event.target.tagName === 'BUTTON' && event.target.textContent === '삭제') {
+        console.log("삭제 버튼 눌렸니?")
+        const itemName = event.target.closest('tr').cells[2].textContent;
+        const itemIndex = cartData.findIndex(item => item.name === itemName);
+        if (itemIndex > -1) {
+            cartData.splice(itemIndex, 1);
+            localStorage.setItem('cart', JSON.stringify(cartData));
+            updateCartDisplay();
+        }
+    }
+});
 
 //모달창 열기
 document.getElementById('purchase-button').addEventListener('click', (e) => {
@@ -101,7 +82,7 @@ window.addEventListener('click', (e) => {
 //구매 확정 이벤트 추가
 document.getElementById('confirm-purchase').addEventListener('click', (e) => {
     alert('구매가 정상적으로 완료되었습니다람쥐');
-    
+
     checkedItems.forEach(item => {
         const row = item.closest('tr');
         const itemName = row.cells[2].textContent; // 아이템 이름을 식별자로 사용
