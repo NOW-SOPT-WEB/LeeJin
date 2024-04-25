@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>찡탱 쇼핑몰</title>
+    <script async src="https://kit.fontawesome.com/0c69fdf2c0.js" crossorigin="anonymous"></script>
+    <script async type="module" src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="assets/icon.png" alt="아이콘">
+        </a>
+        <h2 class="header-title">
+            ༚✧⁎⁺˳찡탱's 쇼핑몰˳⁺⁎✧༚
+        </h2>
+        <div class="hamburger">
+            <input type="checkbox" id="hamburger-toggle" class="hamburger-toggle"/>
+            <label for="hamburger-toggle" class="fa-solid fa-bars"></label>
+            <nav class="hamburger-menu">
+                <label for="hamburger-toggle" class="fa-solid fa-xmark"></label>
+                <ul>
+                    <li><a>관심상품 보기</a></li>
+                    <li><a href="./cart/cart.html">장바구니</a></li>
+                    <li><a>관리자</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="sidebar">
+        <h2>Wish List</h2>
+        <ul class="sidebar-item" id="categoryList">
+            <li category="전체">전체</li>
+            <li category="미스포츈">미스 포츈</li>
+            <li category="쓰레쉬">쓰레쉬</li>
+            <li category="사미라">사미라</li>
+            <li category="유미">유미</li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="banner">
+            <div id="banner-items">
+            </div>
+        </div>
+        <main id="content">
+            <section id="card-container">
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>SOPT WEB Fighting!</p>
+        <p>made by @j-nary</p>
+    </footer>
+</body>
+
+
+</html>

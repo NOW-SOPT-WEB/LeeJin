@@ -1,0 +1,251 @@
+@font-face {
+    font-family: "MyCustomFont";
+    src: url('../assets/BMJUA.woff.ttf') format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+button, input, textarea {
+    font-family: 'MyCustomFont', sans-serif;
+}
+
+body {
+    font-family: 'MyCustomFont', sans-serif;
+    background-image: url('../assets/롤.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+
+    position: fixed;
+    z-index: 1;
+
+    background-color: rgba(191, 163, 215, 0.7);
+
+    top: 0;
+    width: calc(100% - 3.7rem);
+    padding: 1rem;
+    margin: 1.5rem;
+
+    img {
+        width: 2rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    .header-title {
+        display: flex;
+        justify-content: center;
+
+        width: 100%;
+        margin: 0;
+
+        color: black;
+    }
+}
+
+.hamburger-toggle {
+    position: absolute;
+    opacity: 0;
+
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0;
+    padding: 0;
+
+    cursor: pointer;
+}
+
+.hamburger label {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+.hamburger-menu {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+
+    background: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.7);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+    padding: 1rem;
+
+    ul {
+        margin-top: 3rem;
+    }
+
+    li {
+        list-style: none;
+        padding: 1.5rem 0;
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    a:hover {
+        color: purple;
+    }
+}
+
+.hamburger-toggle:checked+.fa-bars+.hamburger-menu {
+    transform: translateX(0%);
+    /* 체크박스 체크될 때 모달 보이도록 */
+}
+
+.cartContainer {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 100%;
+    margin-top: 8rem;
+}
+
+#cartTable {
+    width: 80%;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    th {
+        background-color: goldenrod;
+    }
+
+    td {
+        background-color: rgb(255, 255, 255, 0.8);
+    }
+
+    tbody {
+        display: block;
+        height: 30rem;
+        overflow-y: scroll;
+    }
+
+    thead,
+    tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+
+    margin : 3rem;
+
+    button {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: lightslategray;
+    width: 50%;
+    height: 65%;
+    margin: 12% auto;
+    padding: 1rem;
+
+    border-radius: 0.5rem;
+
+    .button-container {
+        margin: 0;
+    }
+}
+
+#close-modal {
+    display: flex;
+    justify-content: end;
+
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border-radius: 1rem;
+
+    color: white;
+}
+
+.purchase-item {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 13rem;
+    gap: 0.3rem;
+    padding: 0.3rem;
+
+    justify-content: center;
+
+    background-color: white;
+    height: 75%;
+
+    overflow-y: scroll;
+}
+
+.item-card {
+    justify-content: center;
+
+    padding: 0.3rem;
+
+    border: 1px solid #D7A1A4;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    background-color: white;
+    cursor: pointer;
+    text-align: center;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 70%;
+        border-radius: 10px;
+    }
+
+    p {
+        margin: 0.6rem;
+    }
+}
+
+.item-price {
+    color: gray;
+    font-size: 0.8rem;
+}

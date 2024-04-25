@@ -1,0 +1,113 @@
+$font-family-custom: "MyCustomFont", sans-serif;
+$main-color: #487aa3;
+$secondary-color: #e1a5b8;
+$background-gradient-start: #f3f3f3;
+$background-gradient-end: #cde4f7;
+$border-color: #ccc;
+$task-background-color: rgba(255, 255, 255, 0.5);
+$text-color: #333;
+$gray-color: gray;
+
+@font-face {
+  font-family: "MyCustomFont";
+  src: url('./src/BMJUA.woff.ttf') format('truetype');
+}
+
+body {
+  font-family: $font-family-custom;
+  margin: 0;
+  background: linear-gradient(to right, $background-gradient-start 0%, $background-gradient-end 100%);
+  color: $text-color;
+
+  header {
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+    color: $main-color;
+
+    h1 {
+      margin: 0;
+    }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid $border-color;
+  }
+
+  #add-task {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: $main-color;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .delete-task {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: $secondary-color;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .list {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    margin-top: 20px;
+
+    p {
+      width: 120px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .tasks {
+    text-align: left;
+    padding-left: 0;
+    width: 200px;
+    height: 30px;
+  }
+
+  .task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 5px;
+    border: 1px solid $border-color;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: $task-background-color;
+    animation: pulse 1.3s linear infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  h2 {
+    padding-bottom: 10px;
+    text-align: center;
+    color: $gray-color;
+  }
+}

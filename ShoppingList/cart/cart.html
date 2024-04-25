@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>찡탱 쇼핑몰</title>
+    <script async src="https://kit.fontawesome.com/0c69fdf2c0.js" crossorigin="anonymous"></script>
+    <script async type="module" src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <a href="../index.html">
+            <img src="../assets/icon.png" alt="아이콘">
+        </a>
+        <h2 class="header-title">
+            ༚✧⁎⁺˳찡탱's 장바구니˳⁺⁎✧༚
+        </h2>
+        <div class="hamburger">
+            <input type="checkbox" id="hamburger-toggle" class="hamburger-toggle"/>
+            <label for="hamburger-toggle" class="fa-solid fa-bars"></label>
+            <nav class="hamburger-menu">
+                <label for="hamburger-toggle" class="fa-solid fa-xmark"></label>
+                <ul>
+                    <li><a>관심상품 보기</a></li>
+                    <li><a href="cart.html">장바구니</a></li>
+                    <li><a>관리자</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="cartContainer">
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="all-check"></th>
+                    <th colspan="2">상품 정보</th>
+                    <th>상품 금액</th>
+                    <th>카테고리</th>
+                    <th>비고</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+
+    <div class="button-container">
+        <button id="purchase-button">구매하기</button>
+        <a href="../index.html"><button>홈으로</button></a>
+    </div>
+
+    <div id="purchase-modal" class="modal">
+        <div class="modal-content">
+            <i id="close-modal" class="fa-solid fa-xmark"></i>
+            <div class="purchase-item">
+            </div>
+            <p>총 금액: <span id="total-amount"></span></p>
+            <div class="button-container">
+                <button id="confirm-purchase">구매하기</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
