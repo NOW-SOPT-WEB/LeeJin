@@ -34,7 +34,6 @@ document.getElementById('all-check').addEventListener('change', function(e) {
 //각 행 삭제
 document.getElementById('cartTable').addEventListener('click', function(event) {
     if (event.target.tagName === 'BUTTON' && event.target.textContent === '삭제') {
-        console.log("삭제 버튼 눌렸니?")
         const itemName = event.target.closest('tr').cells[2].textContent;
         const itemIndex = cartData.findIndex(item => item.name === itemName);
         if (itemIndex > -1) {
