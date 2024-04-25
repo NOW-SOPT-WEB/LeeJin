@@ -1,6 +1,7 @@
 import { SHOPPING_LIST } from './data.js'
 
 const container = document.getElementById('content');
+const cardContainer = document.getElementById('card-container');
 const categoryList = document.getElementById('categoryList');
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 const bannerItems = document.getElementById('banner-items');
@@ -56,7 +57,7 @@ function filterItems(category) {
             </div>
         </article>
     `).join(``);
-    container.innerHTML = `<section class="card-container">${categoryHtml}</secion>`;
+    cardContainer.innerHTML = `${categoryHtml}`;
 }
 
 filterItems('전체');

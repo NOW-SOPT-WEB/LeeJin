@@ -101,7 +101,7 @@ body {
     transform: translateX(0%);  /* 체크박스 체크될 때 모달 보이도록 */
 }
 
-.container {
+#container {
     display: flex;
     flex-direction: column;
 
@@ -189,7 +189,7 @@ body {
     }
 }
 
-.content {
+#content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -211,7 +211,7 @@ body {
     }
 }
 
-.card-container {
+#card-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-auto-rows: 250px;
