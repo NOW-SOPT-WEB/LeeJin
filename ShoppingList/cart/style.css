@@ -147,19 +147,6 @@ body {
         width: 100%;
         table-layout: fixed;
     }
-
-    /* tbody::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    tbody::-webkit-scrollbar-thumb {
-        background-color: darkgrey;
-        border-radius: 6px;
-    }
-
-    tbody::-webkit-scrollbar-track {
-        background: none;
-    } */
 }
 
 .button-container {
