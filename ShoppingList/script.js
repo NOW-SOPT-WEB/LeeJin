@@ -31,7 +31,7 @@ container.addEventListener('click', (e) => {
     if (!card) return;
 
     const itemName = card.querySelector('h3').innerText;
-    const item = Object.values(SHOPPING_LIST).flat().find(i => i.name === itemName);
+    const item = customFlat(Object.values(SHOPPING_LIST)).find(i => i.name === itemName);
     if (item) {
         const isAlreadyInCart = cart.some(cartItem => cartItem.name === item.name);
         if (isAlreadyInCart) {
@@ -44,7 +44,7 @@ container.addEventListener('click', (e) => {
 
 function filterItems(category) {
     const itemsToDisplay = category === '전체' ?
-        Object.values(SHOPPING_LIST).flat():
+        customFlat(Object.values(SHOPPING_LIST)):
         SHOPPING_LIST[category];
     
     const categoryHtml = itemsToDisplay.map(item => `
@@ -67,3 +67,14 @@ function addToCart(item) {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+function customFlat(arr, depth = 1) {
+	let result = [];
+	arr.forEach(item => {
+		if (Array.isArray(item) && depth > 0) {
+			result = result.concat(customFlat(item, depth - 1));
+		} else {
+			result.push(item);
+		}
+	});
+	return result;
+}
