@@ -5,6 +5,7 @@ const cartData = JSON.parse(localStorage.getItem('cart')) || [];
 let checkedItems;
 
 updateCartDisplay();
+
 function updateCartDisplay() {
     let htmlContent = '';
     cartData.forEach(item => {
@@ -21,6 +22,16 @@ function updateCartDisplay() {
     tableBody.innerHTML = htmlContent;
 }
 
+//전체 체크, 해제
+document.getElementById('all-check').addEventListener('change', function(e) {
+    const isChecked = e.target.checked;
+    const checkboxes = document.querySelectorAll('#cartTable tbody input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = isChecked;
+    });
+});
+
+//각 행 삭제
 document.getElementById('cartTable').addEventListener('click', function(event) {
     if (event.target.tagName === 'BUTTON' && event.target.textContent === '삭제') {
         console.log("삭제 버튼 눌렸니?")
@@ -95,5 +106,7 @@ document.getElementById('confirm-purchase').addEventListener('click', (e) => {
 
     localStorage.setItem('cart', JSON.stringify(cartData));
     modal.style.display = 'none';
+
+    document.getElementById('all-check').checked = false;
     updateCartDisplay();
 });
