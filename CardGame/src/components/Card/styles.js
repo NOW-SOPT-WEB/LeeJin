@@ -4,5 +4,5 @@ export const CardContainer = styled.div`
     width: 180px;
     height: 220px;
     
-    background-color: red;
+    background-color: white;
 `;

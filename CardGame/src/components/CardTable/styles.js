@@ -12,5 +12,5 @@ export const TableContainer = styled.div`
     gap: 1rem 1rem;
     overflow-y: scroll;
 
-    background-color: blue;
+    /* background-color: blue; */
 `

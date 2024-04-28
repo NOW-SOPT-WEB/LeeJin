@@ -4,7 +4,7 @@ export const HeaderContainer = styled.div`
     height: 20%;
     padding: 1.5rem;
 
-    background-color: yellow;
+    background-color: rgb(255, 255, 255, 0.7);
 `;
 
 export const TitleContiner = styled.div`
