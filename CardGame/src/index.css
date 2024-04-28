@@ -1,0 +1,21 @@
+@font-face {
+	font-family: "바른히피";
+	src: url(./src/styles/바른히피.ttf);
+}
+
+@font-face {
+	font-family: "평창평화";
+	src: url(./src/styles/PyeongChangPeace-Bold.otf);
+}
+
+:root {
+    --font-바른히피: "바른히피";
+	--font-평창평화: "평창평화";
+}
+
+*,
+*::before, 
+*::after {
+	margin: 0; 
+	padding: 0;
+}
