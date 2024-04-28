@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import * as s from './styles'
 
 const Header = ({matchingCnt, entireCnt}) => {

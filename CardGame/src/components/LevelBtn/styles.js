@@ -6,6 +6,8 @@ export const BtnContainer = styled.div`
 
     height: 2rem;
     margin: 1rem;
+    margin-bottom: 2rem;
+    
     gap: 2rem;
 `
 
