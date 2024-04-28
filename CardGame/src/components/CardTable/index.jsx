@@ -1,14 +1,14 @@
+import { useEffect } from 'react';
 import Card from '../Card';
 import * as s from './styles'
+import randomUtil from '../../utils/randomUtil';
 
 const CardTable = ({ cnt }) => {
+  const cardItems = randomUtil(cnt);
   return (
     <s.TableContainer>
         {
-            Array.from({ length: cnt * 2 }).map(() => {
-                console.log("안녕");
-                return <Card/>
-            })
+            cardItems.map((item) => <Card/>)
         }
     </s.TableContainer>
   );
