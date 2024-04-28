@@ -4,10 +4,8 @@ export const BtnContainer = styled.div`
     display: flex;
     justify-content: center;
 
-    height: 2rem;
-    margin: 1rem;
-    margin-bottom: 2rem;
-    
+    height: 12%;
+    padding: 1rem;    
     gap: 2rem;
 `
 
