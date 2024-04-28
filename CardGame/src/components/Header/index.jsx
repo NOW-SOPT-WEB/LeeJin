@@ -4,7 +4,7 @@ const Header = ({matchingCnt, entireCnt}) => {
   return (
     <s.HeaderContainer>
       <s.TitleContiner>
-        <s.Title>League of Legends 맞추기</s.Title>
+        <s.Title>산리오 캐릭터 맞추기</s.Title>
         <s.resetBtn>RESET</s.resetBtn>
       </s.TitleContiner>
       <s.Subtitle>{matchingCnt}/{entireCnt}</s.Subtitle>

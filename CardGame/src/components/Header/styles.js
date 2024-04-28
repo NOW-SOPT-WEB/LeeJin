@@ -31,6 +31,6 @@ export const resetBtn = styled.button`
 export const Subtitle = styled.div`
     display: flex;
     justify-content: center;
-    margin-top: 1.5rem;
-    font-size: 2rem;
+    margin-top: 0.7rem;
+    font-size: 1.8rem;
 `;
