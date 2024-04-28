@@ -8,7 +8,7 @@ import { useMemo } from 'react';
 const CardTable = ({ cnt }) => {
   const [clickedId, setClickedId] = useState(-1);
   const cardItems = useMemo(() => {
-    return randomUtil(cnt)
+    return randomUtil(cnt);
   }, [cnt]);
 
   console.log({clickedId})
