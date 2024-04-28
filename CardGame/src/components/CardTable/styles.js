@@ -9,8 +9,6 @@ export const TableContainer = styled.div`
     height: 68%;
     padding: 1rem 1rem;
 
-    gap: 1rem 1rem;
+    gap: 0.2rem 0.5rem;
     overflow-y: scroll;
-
-    /* background-color: blue; */
 `
