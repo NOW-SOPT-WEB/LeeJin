@@ -7,7 +7,7 @@ export const TableContainer = styled.div`
     flex-wrap: wrap;
     justify-content: center;
 
-    height: 65%;
+    height: 68%;
     padding: 0 2rem;
 
     gap: 1rem;

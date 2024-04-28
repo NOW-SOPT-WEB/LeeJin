@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const HeaderContainer = styled.div`
-    height: 23%;
+    height: 20%;
     padding: 1.5rem;
 
     background-color: yellow;
