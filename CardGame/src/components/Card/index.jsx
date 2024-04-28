@@ -1,9 +1,9 @@
 import * as s from './styles'
 
-const Card = () => {
+const Card = ({item: {id, url}, clickedId, setClickedId}) => {
   return (
     <s.CardContainer>
-        하이
+        <s.CardImg src={url}/>
     </s.CardContainer>
   );
 };
