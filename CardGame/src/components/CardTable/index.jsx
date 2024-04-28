@@ -3,10 +3,15 @@ import Card from '../Card';
 import * as s from './styles'
 import randomUtil from '../../utils/randomUtil';
 import { useState } from 'react';
+import { useMemo } from 'react';
 
 const CardTable = ({ cnt }) => {
   const [clickedId, setClickedId] = useState(-1);
-  const cardItems = randomUtil(cnt);
+  const cardItems = useMemo(() => {
+    return randomUtil(cnt)
+  }, [cnt]);
+
+  console.log({clickedId})
   return (
     <s.TableContainer>
         {
