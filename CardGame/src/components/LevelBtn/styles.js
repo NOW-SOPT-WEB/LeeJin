@@ -5,7 +5,7 @@ export const BtnContainer = styled.div`
     justify-content: center;
 
     height: 12%;
-    padding: 1rem;    
+    padding: 1rem 0 0.7rem 0;   
     gap: 2rem;
 `
 

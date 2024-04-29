@@ -4,7 +4,7 @@ export const HeaderContainer = styled.div`
     height: 20%;
     padding: 1.5rem;
 
-    background-color: rgb(255, 255, 255, 0.7);
+    background-color: rgb(255, 255, 255, 0.4);
 `;
 
 export const TitleContiner = styled.div`
@@ -19,7 +19,7 @@ export const resetBtn = styled.div`
     display: flex;
     align-items: center;
     position: fixed;
-    right: 1rem;
+    right: 2rem;
 
     height: 2.5rem;
     padding: 1.5rem 2rem;
