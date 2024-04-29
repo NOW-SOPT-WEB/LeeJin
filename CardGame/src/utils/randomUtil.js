@@ -15,9 +15,9 @@ const randomUtil = (cnt) => {
   shuffleArray(index);
 
   const randomItem = [];
-  index.slice(0, cnt).forEach((idx) => {
-    randomItem.push(cardItem[idx]);
-    randomItem.push(cardItem[idx]);
+  index.slice(0, cnt).forEach((idx, i) => {
+    randomItem.push({...cardItem[idx], "cardId": i});
+    randomItem.push({...cardItem[idx], "cardId": i + 9});
   })
 
   return shuffleArray(randomItem);

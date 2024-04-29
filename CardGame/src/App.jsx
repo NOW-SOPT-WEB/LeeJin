@@ -12,7 +12,7 @@ function App() {
     <Div>
       <Header matchingCnt={matchingCnt} entireCnt={level}/>
       <LevelBtn level={level} setLevel={setLevel}/>
-      <CardTable cnt={level}/>
+      <CardTable cnt={level} setMatchingCnt={setMatchingCnt}/>
     </Div>
   )
 }

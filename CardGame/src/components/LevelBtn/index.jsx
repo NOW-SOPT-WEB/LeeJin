@@ -7,7 +7,7 @@ const LevelBtn = ({level, setLevel}) => {
     <s.BtnContainer>
         {
             Object.entries(levelOptions).map(([l, cnt]) =>
-                <s.Btn onClick={() => setLevel(cnt)} clicked={level === cnt}>{l}</s.Btn>
+                <s.Btn key={l} onClick={() => setLevel(cnt)} clicked={level === cnt}>{l}</s.Btn>
             )
         }
     </s.BtnContainer>
