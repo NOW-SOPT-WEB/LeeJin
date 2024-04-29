@@ -18,7 +18,7 @@ export const Title = styled.div`
 export const resetBtn = styled.div`
     display: flex;
     align-items: center;
-    position: absolute;
+    position: fixed;
     right: 1rem;
 
     height: 2.5rem;
@@ -55,4 +55,5 @@ export const Subtitle = styled.div`
     justify-content: center;
     margin-top: 0.7rem;
     font-size: 1.8rem;
+    color: gray;
 `;

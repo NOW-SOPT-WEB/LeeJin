@@ -1,20 +1,19 @@
-import { useEffect } from 'react';
 import Card from '../Card';
 import * as s from './styles'
 import randomUtil from '../../utils/randomUtil';
-import { useState } from 'react';
-import { useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 const CardTable = ({ cnt, setMatchingCnt }) => {
   const [clickedId, setClickedId] = useState([-1, -1]);   // [id, idx]
   const [isFlipped, setIsFlipped] = useState(Array(cnt * 2).fill(false));
   const [isClickable, setIsClickable] = useState(true);
 
-  const cardItems = useMemo(() => {
+  const cardItems = useMemo(() => randomUtil(cnt) || [], [cnt]);
+  useEffect(() => {
     setIsFlipped(Array(cnt * 2).fill(false));
     setMatchingCnt(0);
-    return randomUtil(cnt);
-  }, [cnt]);
+    setClickedId([-1, -1]);
+  }, [cnt])
 
   const handleCardClick = (idx, id) => {
     if (isFlipped[idx] || !isClickable) return;
@@ -39,7 +38,7 @@ const CardTable = ({ cnt, setMatchingCnt }) => {
         setIsFlipped(update);
         setClickedId([-1, -1]);
         setIsClickable(true);
-      }, 700);
+      }, 500);
     }
   }
   return (
