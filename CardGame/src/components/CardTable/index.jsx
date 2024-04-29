@@ -7,8 +7,9 @@ const CardTable = ({ cnt, setMatchingCnt }) => {
   const [clickedId, setClickedId] = useState([-1, -1]);   // [id, idx]
   const [isFlipped, setIsFlipped] = useState(Array(cnt * 2).fill(false));
   const [isClickable, setIsClickable] = useState(true);
-
+  
   const cardItems = useMemo(() => randomUtil(cnt) || [], [cnt]);
+  
   useEffect(() => {
     setIsFlipped(Array(cnt * 2).fill(false));
     setMatchingCnt(0);
@@ -42,7 +43,7 @@ const CardTable = ({ cnt, setMatchingCnt }) => {
     }
   }
   return (
-    <s.TableContainer>
+    <s.TableContainer columns={cnt <= 7 ? 5 : 6}>
         {
           cardItems.map((item, idx) => (
             <Card

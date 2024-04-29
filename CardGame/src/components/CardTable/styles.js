@@ -2,13 +2,13 @@ import styled from "@emotion/styled";
 
 export const TableContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(auto, 200px));
-    grid-auto-rows: minmax(auto, 400px);
+    grid-template-columns: repeat(${props => props.columns}, 1fr);
+    grid-auto-rows: minmax(215px, 1fr);
     justify-content: center;
 
     height: 68%;
-    padding: 1rem 1rem;
+    padding: 1rem 2rem;
 
-    gap: 0.2rem 0.5rem;
+    gap: 0.5rem 0.5rem;
     overflow-y: scroll;
 `
