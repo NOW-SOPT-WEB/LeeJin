@@ -30,17 +30,14 @@ function App() {
   }
 
   return (
-    // <ThemeProvider theme={Theme}>
-    //   <Global styles={GlobalStyle}/>
-      <MainWrapper>
-        <Header matchingCnt={matchingCnt} entireCnt={level} handleReset={handleReset}/>
-        <LevelBtn level={level} setLevel={setLevel}/>
-        <CardTable cnt={level} setMatchingCnt={setMatchingCnt}/>
-        <Modal open={isModalOpen} onClose={handleModalClose}>
-          <SuccessModal handleModalClose={handleModalClose}/>
-        </Modal>
-      </MainWrapper>
-    // </ThemeProvider>
+    <MainWrapper>
+      <Header matchingCnt={matchingCnt} entireCnt={level} handleReset={handleReset}/>
+      <LevelBtn level={level} setLevel={setLevel}/>
+      <CardTable cnt={level} setMatchingCnt={setMatchingCnt}/>
+      <Modal open={isModalOpen} onClose={handleModalClose}>
+        <SuccessModal handleModalClose={handleModalClose}/>
+      </Modal>
+    </MainWrapper>
   )
 }
 
