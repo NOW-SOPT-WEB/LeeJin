@@ -25,6 +25,7 @@ export const ModalContainer = styled.div`
 export const closeBtn = styled.div`
     display: flex;
     justify-content: end;
+    cursor: pointer;
 `;
 
 export const homeBtn = styled.div`

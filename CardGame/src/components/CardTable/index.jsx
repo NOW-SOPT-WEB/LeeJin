@@ -8,14 +8,19 @@ const CardTable = ({ cnt, setMatchingCnt }) => {
   const [isFlipped, setIsFlipped] = useState(Array(cnt * 2).fill(false));
   const [isClickable, setIsClickable] = useState(true);
   
-  const cardItems = useMemo(() => randomUtil(cnt) || [], [cnt]);
+  const cardItems = useMemo(() => randomUtil(cnt), [cnt]);
   
-  useEffect(() => {
-    setIsFlipped(Array(cnt * 2).fill(false));
-    setMatchingCnt(0);
-    setClickedId([-1, -1]);
-  }, [cnt])
 
+  useEffect(() => {
+    setGame();
+  }, [cnt]);
+
+  const setGame = () => {
+      setIsFlipped(Array(cnt * 2).fill(false));
+      setMatchingCnt(0);
+      setClickedId([-1, -1]);
+  }
+  
   const handleCardClick = (idx, id) => {
     if (isFlipped[idx] || !isClickable) return;
 
@@ -48,7 +53,7 @@ const CardTable = ({ cnt, setMatchingCnt }) => {
           cardItems.map((item, idx) => (
             <Card
               key={item.cardId}
-              item={item}
+              url={item.url}
               isFlipped={isFlipped[idx]}
               handleClick={() => handleCardClick(idx, item.id)}
             />

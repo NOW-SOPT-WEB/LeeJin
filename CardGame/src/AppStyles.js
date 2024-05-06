@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Div = styled.div`
+export const MainWrapper = styled.div`
   background-color: white;
   background-image: url('/src/assets/background.jpeg');
   background-size: cover;

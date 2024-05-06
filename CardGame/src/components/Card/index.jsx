@@ -3,7 +3,7 @@ import * as s from './styles'
 import ReactCardFlip from "react-card-flip";
 import defaultImg from "../../assets/cardDefault.jpeg"
 
-const Card = ({item: {url}, isFlipped, handleClick}) => {
+const Card = ({url, isFlipped, handleClick}) => {
   return (
     <ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal'>
         <s.CardImg onClick={handleClick} src={defaultImg}/>

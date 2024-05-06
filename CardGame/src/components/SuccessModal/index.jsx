@@ -8,7 +8,7 @@ const SuccessModal = React.forwardRef(({handleModalClose}, ref) => {
   return (
     <s.ModalContainer src={bgSrc}>
         <s.closeBtn>
-            <FontAwesomeIcon icon={faCircleXmark} size="lg" onClick={handleModalClose} cursor="pointer"/>
+            <FontAwesomeIcon icon={faCircleXmark} size="lg" onClick={handleModalClose}/>
         </s.closeBtn>
         <s.homeBtn onClick={handleModalClose}>게임 또 하자</s.homeBtn>
     </s.ModalContainer>

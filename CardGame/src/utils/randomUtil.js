@@ -1,4 +1,4 @@
-import { cardItem } from "./dataUtil";
+import { cardItem } from "../constants/constants";
 
 const shuffleArray = (arr) => {
     // Fisher-Yates Shuffle 알고리즘
@@ -11,7 +11,7 @@ const shuffleArray = (arr) => {
 
 const randomUtil = (cnt) => {
   if (cnt <= 0) return;
-  const index = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  const index = Array.from({ length: cardItem.length }, (_, index) => index); 
   shuffleArray(index);
 
   const randomItem = [];

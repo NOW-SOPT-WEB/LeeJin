@@ -1,8 +1,7 @@
+import { levelOptions } from '../../constants/constants';
 import * as s from './styles'
 
 const LevelBtn = ({level, setLevel}) => {
-  const levelOptions = {'Easy': 5, 'Normal': 7, 'Hard': 9};
-
   return (
     <s.BtnContainer>
         {
