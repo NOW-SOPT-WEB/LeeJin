@@ -1,3 +1,6 @@
+import { duration } from "@mui/material";
+import create from "@mui/material/styles/createTransitions";
+
 const color = {
     black: "black",
   
@@ -61,4 +64,5 @@ const text = {
 export const Theme = {
     color,
     text,
+    transitions: { duration, create },
 };

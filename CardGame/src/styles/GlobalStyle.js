@@ -12,7 +12,6 @@ export const GlobalStyle = css({
   },
 
   "html, body": {
-    fontFamily: `system-ui, -apple-system, BlinkMacSystemFont, 'Open Sans', 'Helvetica Neue'`,
     fontSize: "18px",
   },
 
