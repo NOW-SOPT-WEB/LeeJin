@@ -1,5 +1,6 @@
 import { duration } from "@mui/material";
 import create from "@mui/material/styles/createTransitions";
+import zIndex from "@mui/material/styles/zIndex";
 
 const color = {
     black: "black",
@@ -64,5 +65,6 @@ const text = {
 export const Theme = {
     color,
     text,
+    zIndex,
     transitions: { duration, create },
 };
