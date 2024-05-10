@@ -46,14 +46,39 @@ export function loginAPI({ authenticationId, password }: loginProps) {
   });
 }
 
-export function getUserDataAPI({memberId}: loginProps) {
+export function getUserDataAPI({ memberId }: loginProps) {
   console.log('get user data called');
   return axios.get(`${base_url}/member/info`,
-    { headers:  {memberId}  },
+    { headers: { memberId } },
   ).catch((err) => {
     alert(err.response.data.message);
     throw err
   }).then((data) => {
     return data.data.data
+  });
+}
+
+type passwordAPIProps = {
+  previousPassword: string,
+  newPassword: string,
+  newPasswordVerification: string,
+  memberId: string
+}
+export function passwordAPI({ previousPassword, newPassword, newPasswordVerification, memberId }: passwordAPIProps) {
+  console.log('patch password called');
+  return axios.patch(`${base_url}/member/password`,
+    {
+      previousPassword,
+      newPassword,
+      newPasswordVerification
+    },
+    {
+      headers: { memberId }
+    }
+  ).catch((err) => {
+    alert(err.response.data.message);
+    throw err
+  }).then((data) => {
+    return data
   });
 }

@@ -7,9 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { loginAPI } from "../../axios/api";
 
-interface LoginPageProps { }
-
-const LoginPage = ({ }: LoginPageProps) => {
+const LoginPage = () => {
   const [authenticationId, setAuthenticationId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -20,11 +18,14 @@ const LoginPage = ({ }: LoginPageProps) => {
     setPassword(e.target.value);
   };
   const handleSubmit = () => {
-    loginAPI({ authenticationId, password })
-      .then((response) => {
-        console.log(response.headers.location)
-        navigate(`/?userId=${response.headers.location}`)
-      });
+    if (authenticationId !== "" && password !== "") {
+      loginAPI({ authenticationId, password })
+        .then((response) => {
+          navigate(`/main?userId=${response.headers.location}`)
+        });
+    } else {
+
+    }
   };
   return (
     <ss.Wrapper>

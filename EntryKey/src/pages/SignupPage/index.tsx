@@ -4,14 +4,15 @@ import Button from "../../components/@common/Button";
 import { useState } from "react";
 import { signupAPI } from "../../axios/api";
 import { Link, useNavigate } from "react-router-dom";
-interface SignupPageProps {}
+import { validatePassword } from "../../utils/loginFormat";
 
-const SignupPage = ({}: SignupPageProps) => {
+const SignupPage = () => {
   const [authenticationId, setAuthenticationId] = useState("");
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
   const [phone, setPhone] = useState("");
   const navigate = useNavigate();
+
   const handleId = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAuthenticationId(e.target.value);
   };
@@ -25,7 +26,12 @@ const SignupPage = ({}: SignupPageProps) => {
     setPhone(e.target.value);
   };
   const handleSubmit = () => {
-    signupAPI({authenticationId, password, nickname, phone}).then(() => navigate("/"));
+    if (!validatePassword(password)) {
+      alert("비밀번호가 형식(최소 8글자 이상, 숫자, 문자(a-z, A-Z), 특수문자 포함)에 맞지 않습니다.");
+    } else {
+      signupAPI({authenticationId, password, nickname, phone})
+      .then(() => navigate("/"))
+    }
   };
   return (
     <s.Wrapper>

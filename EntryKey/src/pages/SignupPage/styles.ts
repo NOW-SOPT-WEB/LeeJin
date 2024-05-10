@@ -40,7 +40,7 @@ export const SubTitle = styled.div`
 `
 
 export const ListInput = styled.input`
-    width: 25%;
+    width: 15rem;
     padding: 16px;
     border-radius: 12px;
     border: 1px solid lightgray;
