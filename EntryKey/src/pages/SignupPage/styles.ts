@@ -21,12 +21,23 @@ export const List = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-top: 2rem;
 `;
 
 export const ListTitle = styled.div`
     width: 80px;
 `;
+
+export const SubTitle = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-left: 10%;
+    color: blue;
+
+    font-family: null;
+    font-size: 10px;
+
+`
 
 export const ListInput = styled.input`
     width: 25%;

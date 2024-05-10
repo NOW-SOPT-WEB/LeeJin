@@ -18,7 +18,11 @@ export function loginAPI({ authenticationId, password, nickname, phone }: loginP
       phone
     },
   ).then(({ data }) => {
-    console.log({ base_url, data })
     return data
+  }).catch((err) => {
+    alert(err.response.data.message);
+    throw err
+  }).then(() => {
+    alert("회원가입이 완료되었습니다.");
   });
 }

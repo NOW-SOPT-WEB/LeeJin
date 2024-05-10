@@ -3,6 +3,7 @@ import logoSrc from "../../assets/SignupLogo.png"
 import Button from "../../components/@common/Button";
 import { useState } from "react";
 import { loginAPI } from "../../axios/api";
+import { Link, useNavigate } from "react-router-dom";
 interface SignupPageProps {}
 
 const SignupPage = ({}: SignupPageProps) => {
@@ -10,6 +11,7 @@ const SignupPage = ({}: SignupPageProps) => {
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
   const [phone, setPhone] = useState("");
+  const navigate = useNavigate();
   const handleId = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAuthenticationId(e.target.value);
   };
@@ -23,7 +25,7 @@ const SignupPage = ({}: SignupPageProps) => {
     setPhone(e.target.value);
   };
   const handleSubmit = () => {
-    loginAPI({authenticationId, password, nickname, phone});
+    loginAPI({authenticationId, password, nickname, phone}).then(() => navigate("/"));
   };
   return (
     <s.Wrapper>
@@ -38,6 +40,7 @@ const SignupPage = ({}: SignupPageProps) => {
         <s.ListTitle>비밀번호</s.ListTitle>
         <s.ListInput onChange={handlePw}/>
       </s.List>
+      <s.SubTitle>비밀번호 형식은 8자이상, 숫자, 특수문자, 영어 알파벳이 포함되어야 합니다.</s.SubTitle>
       <s.List>
         <s.ListTitle>닉네임</s.ListTitle>
         <s.ListInput onChange={handleNickname}/>
@@ -46,9 +49,10 @@ const SignupPage = ({}: SignupPageProps) => {
         <s.ListTitle>전화번호</s.ListTitle>
         <s.ListInput onChange={handlePhone}/>
       </s.List>
+      <s.SubTitle>전화번호 형식은 010-****-****입니다.</s.SubTitle>
       <s.BtnWrapper>
         <Button onClick={handleSubmit}>회원가입</Button>
-        <Button>뒤로가기</Button>
+        <Button onClick={() => navigate(-1)}>뒤로가기</Button>
       </s.BtnWrapper>
     </s.Wrapper>
   );

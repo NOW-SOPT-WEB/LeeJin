@@ -2,7 +2,7 @@ import * as s from "./ButtonStyles"
 interface ButtonProps {
     text?: string,
     children: React.ReactNode,
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Button = ({children,onClick}: ButtonProps) => {
