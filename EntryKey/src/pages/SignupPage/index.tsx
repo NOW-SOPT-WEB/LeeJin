@@ -2,7 +2,7 @@ import * as s from "./styles"
 import logoSrc from "../../assets/SignupLogo.png"
 import Button from "../../components/@common/Button";
 import { useState } from "react";
-import { loginAPI } from "../../axios/api";
+import { signupAPI } from "../../axios/api";
 import { Link, useNavigate } from "react-router-dom";
 interface SignupPageProps {}
 
@@ -25,7 +25,7 @@ const SignupPage = ({}: SignupPageProps) => {
     setPhone(e.target.value);
   };
   const handleSubmit = () => {
-    loginAPI({authenticationId, password, nickname, phone}).then(() => navigate("/"));
+    signupAPI({authenticationId, password, nickname, phone}).then(() => navigate("/"));
   };
   return (
     <s.Wrapper>

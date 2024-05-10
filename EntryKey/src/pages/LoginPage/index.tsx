@@ -3,11 +3,25 @@ import * as ss from "../SignupPage/styles"
 import logoSrc from "../../assets/LoginLogo.png"
 import loginSrc from "../../assets/LoginImg.jpeg"
 import Button from "../../components/@common/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { loginAPI } from "../../axios/api";
 
 interface LoginPageProps { }
 
 const LoginPage = ({ }: LoginPageProps) => {
+  const [authenticationId, setAuthenticationId] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const handleId = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAuthenticationId(e.target.value);
+  };
+  const handlePw = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+  const handleSubmit = () => {
+    loginAPI({authenticationId, password}).then(() => navigate("/"));
+  };
   return (
     <ss.Wrapper>
       <ss.LogoWrapper>
@@ -18,14 +32,14 @@ const LoginPage = ({ }: LoginPageProps) => {
       </s.ImgWrapper>
       <ss.List>
         <ss.ListTitle>ID</ss.ListTitle>
-        <ss.ListInput/>
+        <ss.ListInput onChange={handleId}/>
       </ss.List>
       <ss.List>
         <ss.ListTitle>PW</ss.ListTitle>
-        <ss.ListInput/>
+        <ss.ListInput onChange={handlePw}/>
       </ss.List>
       <ss.BtnWrapper>
-        <Button>로그인</Button>
+        <Button onClick={handleSubmit}>로그인</Button>
         <Link to="/signUp">
           <Button>회원가입</Button>
         </Link>
