@@ -4,13 +4,14 @@ export const Wrapper = styled.div`
     font-family: var(--font-평창평화);
     
     width: 100%;
-    height: 100vh;
+    height: 95vh;
     margin: 0;
 `;
 
 export const LogoWrapper = styled.div`
     display: flex;
     justify-content: center;
+    margin-top: 5vh;
 `
 export const MainLogo = styled.img`
     height: 40%;

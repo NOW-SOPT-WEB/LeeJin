@@ -1,5 +1,5 @@
 import * as s from "./styles"
-import MainSrc from "../../assets/MainLogo.png"
+import MainVideo from "../../assets/love.mp4"
 import { Link, useSearchParams } from "react-router-dom"
 import Button from "../../components/@common/Button"
 interface MainPageProps {}
@@ -11,7 +11,9 @@ const MainPage = ({}: MainPageProps) => {
   return (
     <s.Wrapper>
       <s.LogoWrapper>
-        <s.MainLogo src={MainSrc}/>
+        <video controls autoPlay loop muted>
+          <source src={MainVideo} type="video/mp4"/>
+        </video>
       </s.LogoWrapper>
       <s.BtnWrapper>
         <Link to={`/my?userId=${userId}`}>
