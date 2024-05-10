@@ -3,14 +3,15 @@ import axios from "axios";
 const base_url = import.meta.env.VITE_APP_BASE_URL;
 
 type loginProps = {
-  authenticationId: string,
-  password: string,
+  authenticationId?: string,
+  password?: string,
   nickname?: string,
-  phone?: string
+  phone?: string,
+  memberId?: number
 }
 
 export function signupAPI({ authenticationId, password, nickname, phone }: loginProps) {
-  console.log('login called', { base_url });
+  console.log('signup called');
   return axios.post(`${base_url}/member/join`,
     {
       authenticationId,
@@ -29,7 +30,7 @@ export function signupAPI({ authenticationId, password, nickname, phone }: login
 }
 
 export function loginAPI({ authenticationId, password }: loginProps) {
-  console.log('login called', { base_url });
+  console.log('login called');
   return axios.post(`${base_url}/member/login`,
     {
       authenticationId,
@@ -42,5 +43,17 @@ export function loginAPI({ authenticationId, password }: loginProps) {
   }).then((data) => {
     alert("로그인 완료되었습니다.");
     return data
+  });
+}
+
+export function getUserDataAPI({memberId}: loginProps) {
+  console.log('get user data called');
+  return axios.get(`${base_url}/member/info`,
+    { headers:  {memberId}  },
+  ).catch((err) => {
+    alert(err.response.data.message);
+    throw err
+  }).then((data) => {
+    return data.data.data
   });
 }
