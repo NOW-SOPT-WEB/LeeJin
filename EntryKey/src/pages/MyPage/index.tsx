@@ -1,7 +1,7 @@
-interface MyPageProps {}
+interface MyPageProps { }
 
-const MyPage = ({}: MyPageProps) => {
-  return ;
+const MyPage = ({ }: MyPageProps) => {
+  return;
 };
 
 export default MyPage;
