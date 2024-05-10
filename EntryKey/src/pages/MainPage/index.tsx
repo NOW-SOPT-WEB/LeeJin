@@ -1,6 +1,7 @@
 import * as s from "./styles"
 import MainSrc from "../../assets/MainLogo.png"
 import { Link } from "react-router-dom"
+import Button from "../../components/@common/Button"
 interface MainPageProps {}
 
 const MainPage = ({}: MainPageProps) => {
@@ -11,10 +12,10 @@ const MainPage = ({}: MainPageProps) => {
       </s.LogoWrapper>
       <s.BtnWrapper>
         <Link to="/my">
-          <s.Btn>내 정보</s.Btn>
+          <Button>내 정보</Button>
         </Link>
         <Link to="/signUp">
-          <s.Btn>회원가입</s.Btn>
+          <Button>회원가입</Button>
         </Link>
       </s.BtnWrapper>
     </s.Wrapper>
