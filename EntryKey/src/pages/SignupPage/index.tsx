@@ -36,33 +36,39 @@ const SignupPage = () => {
     if (!validatePassword(password)) {
       alert("비밀번호가 형식(최소 8글자 이상, 숫자, 문자(a-z, A-Z), 특수문자 포함)에 맞지 않습니다.");
     } else {
-      signupAPI({authenticationId, password, nickname, phone})
-      .then(() => navigate("/"))
+      signupAPI({ authenticationId, password, nickname, phone })
+        .then(() => navigate("/"))
     }
   };
   return (
     <s.Wrapper>
       <s.LogoWrapper>
-        <s.LogoImg src={logoSrc}/>
+        <s.LogoImg src={logoSrc} />
       </s.LogoWrapper>
       <s.List>
         <s.ListTitle>ID</s.ListTitle>
-        <s.ListInput onChange={handleId}/>
+        <s.ListInput onChange={handleId} />
       </s.List>
       <s.List>
         <s.ListTitle>비밀번호</s.ListTitle>
-        <s.ListInput onChange={handlePw}/>
+        <s.ListInput onChange={handlePw} />
       </s.List>
-      <s.SubTitle>비밀번호 형식은 8자이상, 숫자, 특수문자, 영어 알파벳이 포함되어야 합니다.</s.SubTitle>
+      <s.SubList>
+        <s.SubEmpty />
+        <s.SubTitle>비밀번호 형식은 8자이상, 숫자, 특수문자, 영어 알파벳이 포함되어야 합니다.</s.SubTitle>
+      </s.SubList>
       <s.List>
         <s.ListTitle>닉네임</s.ListTitle>
-        <s.ListInput onChange={handleNickname}/>
+        <s.ListInput onChange={handleNickname} />
       </s.List>
       <s.List>
         <s.ListTitle>전화번호</s.ListTitle>
         <s.ListInput onChange={handlePhone} value={phone} />
       </s.List>
-      <s.SubTitle>전화번호 형식은 010-****-****입니다.</s.SubTitle>
+      <s.SubList>
+        <s.SubEmpty />
+        <s.SubTitle>전화번호 형식은 010-****-****입니다.</s.SubTitle>
+      </s.SubList>
       <s.BtnWrapper>
         <Button onClick={handleSubmit}>회원가입</Button>
         <Button onClick={() => navigate(-1)}>뒤로가기</Button>
