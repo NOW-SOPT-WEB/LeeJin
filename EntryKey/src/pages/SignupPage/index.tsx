@@ -1,7 +1,7 @@
 import * as s from "./styles"
 import logoSrc from "../../assets/SignupLogo.png"
 import Button from "../../components/@common/Button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { signupAPI } from "../../axios/api";
 import { Link, useNavigate } from "react-router-dom";
 import { validatePassword } from "../../utils/loginFormat";
@@ -12,6 +12,34 @@ const SignupPage = () => {
   const [nickname, setNickname] = useState("");
   const [phone, setPhone] = useState("");
   const navigate = useNavigate();
+
+  const authenticationIdRef = useRef<HTMLInputElement>();
+  const passwordRef = useRef<HTMLInputElement>();
+  const nicknameRef = useRef<HTMLInputElement>();
+  const phoneRef = useRef<HTMLInputElement>();
+
+  useEffect(() => {
+    if (!phone && phoneRef.current) {
+      phoneRef.current.focus();
+    }
+  }, [phone]);
+  useEffect(() => {
+    if (!nickname && nicknameRef.current) {
+      nicknameRef.current.focus();
+    }
+  }, [nickname]);
+  useEffect(() => {
+    if (!password && passwordRef.current) {
+      console.log("하이")
+      
+      passwordRef.current.focus();
+    }
+  }, [password]);
+  useEffect(() => {
+    if (!authenticationId && authenticationIdRef.current) {
+      authenticationIdRef.current.focus();
+    }
+  }, [authenticationId]);
 
   const handleId = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAuthenticationId(e.target.value);
@@ -35,7 +63,13 @@ const SignupPage = () => {
   const handleSubmit = () => {
     if (!validatePassword(password)) {
       alert("비밀번호가 형식(최소 8글자 이상, 숫자, 문자(a-z, A-Z), 특수문자 포함)에 맞지 않습니다.");
-    } else {
+      passwordRef.current?.focus();
+    } else if (!authenticationId || !password || !nickname || !phone) {
+      const refs = [authenticationIdRef, passwordRef, nicknameRef, phoneRef];
+      const fields = [authenticationId, password, nickname, phone];
+      const emptyIndex = fields.findIndex(field => !field);
+      refs[emptyIndex].current?.focus();
+    }  else {
       signupAPI({ authenticationId, password, nickname, phone })
         .then(() => navigate("/"))
     }
@@ -47,11 +81,11 @@ const SignupPage = () => {
       </s.LogoWrapper>
       <s.List>
         <s.ListTitle>ID</s.ListTitle>
-        <s.ListInput onChange={handleId} />
+        <s.ListInput onChange={handleId} ref={authenticationIdRef}/>
       </s.List>
       <s.List>
         <s.ListTitle>비밀번호</s.ListTitle>
-        <s.ListInput onChange={handlePw} />
+        <s.ListInput onChange={handlePw} ref={passwordRef}/>
       </s.List>
       <s.SubList>
         <s.SubEmpty />
@@ -59,11 +93,11 @@ const SignupPage = () => {
       </s.SubList>
       <s.List>
         <s.ListTitle>닉네임</s.ListTitle>
-        <s.ListInput onChange={handleNickname} />
+        <s.ListInput onChange={handleNickname} ref={nicknameRef}/>
       </s.List>
       <s.List>
         <s.ListTitle>전화번호</s.ListTitle>
-        <s.ListInput onChange={handlePhone} value={phone} />
+        <s.ListInput onChange={handlePhone} value={phone} ref={phoneRef}/>
       </s.List>
       <s.SubList>
         <s.SubEmpty />

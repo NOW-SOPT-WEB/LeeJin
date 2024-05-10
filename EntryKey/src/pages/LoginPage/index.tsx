@@ -4,7 +4,7 @@ import logoSrc from "../../assets/LoginLogo.png"
 import loginSrc from "../../assets/LoginImg.jpeg"
 import Button from "../../components/@common/Button";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { loginAPI } from "../../axios/api";
 
 const LoginPage = () => {
