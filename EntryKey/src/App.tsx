@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
 import LoginPage from './pages/LoginPage'
 import MainPage from './pages/MainPage'
 import SignupPage from './pages/SignupPage'
 import MyPage from './pages/MyPage'
+import './index.css'
 
 function App() {
 
