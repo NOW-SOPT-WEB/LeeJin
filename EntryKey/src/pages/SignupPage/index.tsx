@@ -23,7 +23,14 @@ const SignupPage = () => {
     setNickname(e.target.value);
   };
   const handlePhone = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPhone(e.target.value);
+    const { value } = e.target;
+    let formattedPhoneNumber = value.replace(/\D/g, '');
+    if (formattedPhoneNumber.length > 3 && formattedPhoneNumber.length <= 6) {
+      formattedPhoneNumber = formattedPhoneNumber.slice(0, 3) + '-' + formattedPhoneNumber.slice(3);
+    } else if (formattedPhoneNumber.length > 6) {
+      formattedPhoneNumber = formattedPhoneNumber.slice(0, 3) + '-' + formattedPhoneNumber.slice(3, 7) + '-' + formattedPhoneNumber.slice(7, 11);
+    }
+    setPhone(formattedPhoneNumber);
   };
   const handleSubmit = () => {
     if (!validatePassword(password)) {
@@ -53,7 +60,7 @@ const SignupPage = () => {
       </s.List>
       <s.List>
         <s.ListTitle>전화번호</s.ListTitle>
-        <s.ListInput onChange={handlePhone}/>
+        <s.ListInput onChange={handlePhone} value={phone} />
       </s.List>
       <s.SubTitle>전화번호 형식은 010-****-****입니다.</s.SubTitle>
       <s.BtnWrapper>
