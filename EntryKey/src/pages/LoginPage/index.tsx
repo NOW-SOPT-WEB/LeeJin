@@ -23,7 +23,7 @@ const LoginPage = ({ }: LoginPageProps) => {
     loginAPI({ authenticationId, password })
       .then((response) => {
         console.log(response.headers.location)
-        navigate("/", { state: { userId: response.headers.location } })
+        navigate(`/?userId=${response.headers.location}`)
       });
   };
   return (
