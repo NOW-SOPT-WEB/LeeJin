@@ -20,7 +20,11 @@ const LoginPage = ({ }: LoginPageProps) => {
     setPassword(e.target.value);
   };
   const handleSubmit = () => {
-    loginAPI({authenticationId, password}).then(() => navigate("/"));
+    loginAPI({ authenticationId, password })
+      .then((response) => {
+        console.log(response.headers.location)
+        navigate("/", { state: { userId: response.headers.location } })
+      });
   };
   return (
     <ss.Wrapper>
@@ -32,11 +36,11 @@ const LoginPage = ({ }: LoginPageProps) => {
       </s.ImgWrapper>
       <ss.List>
         <ss.ListTitle>ID</ss.ListTitle>
-        <ss.ListInput onChange={handleId}/>
+        <ss.ListInput onChange={handleId} />
       </ss.List>
       <ss.List>
         <ss.ListTitle>PW</ss.ListTitle>
-        <ss.ListInput onChange={handlePw}/>
+        <ss.ListInput onChange={handlePw} />
       </ss.List>
       <ss.BtnWrapper>
         <Button onClick={handleSubmit}>로그인</Button>

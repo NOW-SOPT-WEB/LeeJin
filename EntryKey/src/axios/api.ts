@@ -8,6 +8,7 @@ type loginProps = {
   nickname?: string,
   phone?: string
 }
+
 export function signupAPI({ authenticationId, password, nickname, phone }: loginProps) {
   console.log('login called', { base_url });
   return axios.post(`${base_url}/member/join`,
@@ -35,12 +36,11 @@ export function loginAPI({ authenticationId, password }: loginProps) {
       password,
 
     },
-  ).then(({ data }) => {
-    return data
-  }).catch((err) => {
+  ).catch((err) => {
     alert(err.response.data.message);
     throw err
-  }).then(() => {
+  }).then((data) => {
     alert("로그인 완료되었습니다.");
+    return data
   });
 }
