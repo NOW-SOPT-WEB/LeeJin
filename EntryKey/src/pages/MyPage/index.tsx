@@ -99,7 +99,7 @@ const MyPage = () => {
         </s.ToggleWrapper>
       </s.PwWrapper>
       <ss.BtnWrapper style={{ marginTop: "2rem" }}>
-        <Link to="/">
+        <Link to="/main">
           <Button>홈으로</Button>
         </Link>
       </ss.BtnWrapper>
