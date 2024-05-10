@@ -11,6 +11,8 @@ const SignupPage = () => {
   const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
   const [phone, setPhone] = useState("");
+  const [errorField, setErrorField] = useState("");
+
   const navigate = useNavigate();
 
   const authenticationIdRef = useRef<HTMLInputElement>();
@@ -18,6 +20,7 @@ const SignupPage = () => {
   const nicknameRef = useRef<HTMLInputElement>();
   const phoneRef = useRef<HTMLInputElement>();
 
+  
   useEffect(() => {
     if (!phone && phoneRef.current) {
       phoneRef.current.focus();
